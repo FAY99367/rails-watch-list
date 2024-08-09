@@ -1,0 +1,16 @@
+<!-- app/views/movie_lists/new.html.erb -->
+
+<h1>Créer une nouvelle liste de films</h1>
+
+<!-- Formulaire pour créer une nouvelle liste -->
+<%= form_with model: @movie_list, local: true do |form| %>
+  <div>
+    <!-- Champ pour entrer le nom de la liste -->
+    <%= form.label :name, 'Nom de la liste' %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <!-- Bouton pour soumettre le formulaire -->
+    <%= form.submit 'Créer' %>
+  </div>
+<% end %>

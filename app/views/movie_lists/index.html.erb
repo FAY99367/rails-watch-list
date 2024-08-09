@@ -1,0 +1,16 @@
+<!-- app/views/movie_lists/index.html.erb -->
+
+<h1>Mes listes de films</h1>
+
+<!-- Lien pour créer une nouvelle liste -->
+<%= link_to 'Créer une nouvelle liste', new_movie_list_path %>
+
+<!-- Liste des listes de films -->
+<ul>
+  <% @movie_lists.each do |movie_list| %>
+    <li>
+      <!-- Lien vers les détails de chaque liste de films -->
+      <%= link_to movie_list.name, movie_list %>
+    </li>
+  <% end %>
+</ul>

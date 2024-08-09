@@ -1,0 +1,31 @@
+<!-- app/views/movie_lists/show.html.erb -->
+
+<h1><%= @movie_list.name %></h1>
+
+<h2>Films dans la liste</h2>
+<ul>
+  <% @movie_list.movies.each do |movie| %>
+    <li>
+      <%= movie.title %>
+      <!-- Bouton pour retirer un film de la liste -->
+      <%= button_to 'Retirer de la liste', remove_bookmark_movie_list_path(@movie_list, movie_id: movie.id), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Ajouter un film à la liste</h2>
+<!-- Formulaire pour ajouter un film à la liste -->
+<%= form_with url: bookmark_movie_list_path(@movie_list), method: :post, local: true do |form| %>
+  <div>
+    <!-- Menu déroulant pour sélectionner un film -->
+    <%= form.label :movie_id, 'Choisir un film' %>
+    <%= select_tag :movie_id, options_from_collection_for_select(@movies, :id, :title) %>
+  </div>
+  <div>
+    <!-- Bouton pour soumettre le formulaire et ajouter le film -->
+    <%= form.submit 'Ajouter' %>
+  </div>
+<% end %>
+
+<!-- Lien pour revenir à la liste des listes de films -->
+<%= link_to 'Retour à la liste des listes de films', movie_lists_path %>
