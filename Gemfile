@@ -65,3 +65,4 @@ end
 gem 'simple_form'
 gem "bootstrap", "~> 5.2"
 gem "sassc-rails"
+gem "font-awesome-sass", "~> 6.1"
